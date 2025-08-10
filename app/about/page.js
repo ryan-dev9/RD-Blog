@@ -22,7 +22,7 @@ export default function Page() {
           About Me
         </h1>
         <p className="text-lg text-gray-200 mb-6 text-center">
-          Hi, I&apos;m Ryan Developer, a passionate Front-End Web Developer with expertise in crafting modern, responsive, and interactive websites using the latest technologies like <span className="font-semibold text-blue-300">React.js</span>, <span className="font-semibold text-blue-300">Next.js</span>, and <span className="font-semibold text-blue-300">Tailwind CSS</span>.
+          Hi, I am Ryan Developer, a passionate Front-End Web Developer with expertise in crafting modern, responsive, and interactive websites using the latest technologies like <span className="font-semibold text-blue-300">React.js</span>, <span className="font-semibold text-blue-300">Next.js</span>, and <span className="font-semibold text-blue-300">Tailwind CSS</span>.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
