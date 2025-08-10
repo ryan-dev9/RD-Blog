@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* inline-block rounded bg-primary px-12 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 focus:outline-none active:bg-primary-700" */
+
+#my-button {
+  display: inline-block;
+  border-radius: 5px; /* rounded */
+  background-color: #1418ff; /* primary color */
+  padding-left: 3rem; /* px-12 */
+  padding-right: 3rem;
+  padding-top: 0.75rem; /* pt-3 */
+  padding-bottom: 0.625rem; /* pb-2.5 */
+  font-size: 20px; /* text-sm */
+  font-weight: 700; /* font-medium */
+  text-transform: uppercase;
+  line-height: 1.5; /* leading-normal */
+  color: #ffffff; /* text-white */
+  box-shadow: 10px 10px 0px #000000; /* shadow-[...] */
+  transition: all 150ms ease-in-out; /* transition duration-150 ease-in-out */
+}
+
+
+
+#my-button:focus {
+  outline: none; /* focus:outline-none */
+}
+
+#my-button:active {
+  background-color: #000000; /* primary-700 */
+  color: white;
+  transform: translateX(5px) translateY(5px); /* active effect */
+box-shadow: 0px 0px 0px #000000; /* shadow
+}-[...] */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  background: transparent;
+}
+
+#Cards{
+  box-shadow: 0px 0px 20px  rgb(0, 0, 0);
+}
