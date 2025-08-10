@@ -5,8 +5,7 @@ import { Orbitron } from "next/font/google";
 import Subscription from "@/components/subscription";
 import ClientComments from "@/components/ClientComments";
 import BlogSection from "@/components/blog-pages";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
  function Home() {
 
@@ -148,9 +147,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
       <Subscription/>
       <ClientComments/>
       <BlogSection/>
-      
-      <Analytics/>
-      <SpeedInsights/>
     </div>
   );
 }

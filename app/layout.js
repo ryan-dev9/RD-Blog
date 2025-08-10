@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Orbitron } from 'next/font/google'
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +45,8 @@ export default function RootLayout({ children }) {
         <Navbar/>
         {children}
       </ThemeProvider>
+      <Analytics/>
+      <SpeedInsights/>
       </body>
     </html>
   );
