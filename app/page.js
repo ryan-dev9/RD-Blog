@@ -8,9 +8,6 @@ import BlogSection from "@/components/blog-pages";
 
  function Home() {
 
-
-   
-
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center overflow-x-hidden">
       <section>
