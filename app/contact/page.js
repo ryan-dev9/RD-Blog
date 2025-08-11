@@ -5,34 +5,25 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => { setForm({ ...form, [e.target.name]: e.target.value }); };
 
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
-
   const handleClick = (e) => {
     e.preventDefault();
     setIsSending(true);
 
-    // Simulated API call
     setTimeout(() => {
       setIsSending(false);
       setIsSent(true);
-
-      // Auto-hide popup
       setTimeout(() => {
         setIsSent(false);
       }, 2500);
     }, 1500);
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
     emailjs
       .send(
         "service_xtwm8l3", // Your Service ID
@@ -55,9 +46,8 @@ export default function ContactForm() {
         }
       );
   };
-
   return (
-    <section className="min-h-screen py-16 bg-transparent text-white">
+    <section className="min-h-screen py-16 bg-transparent">
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="mt-6 text-5xl font-bold font-[Orbitron] text-center  mb-8">
           Contact <span className="text-blue-500">Us</span>
@@ -72,7 +62,7 @@ export default function ContactForm() {
             value={form.name}
             onChange={handleChange}
             placeholder="Your Name"
-            className="w-full p-3 rounded-lg text-xl font-semibold bg-white/5 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 rounded-lg text-xl font-semibold bg-white/5  border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
           <input
@@ -94,41 +84,38 @@ export default function ContactForm() {
             required
           ></textarea>
 
-       
-
           <div className="relative w-64">
-        <motion.button
-          type="submit"
-          onClick={handleClick}
-          className="w-full p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition duration-300 font-semibold text-white flex items-center justify-center"
-          whileTap={{ scale: 0.95 }}
-          disabled={isSending}
-          >
-          {isSending ? (
-              <motion.div
-              className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              />
-            ) : (
+            <motion.button
+              type="submit"
+              onClick={handleClick}
+              className="w-full p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition duration-300 font-semibold  flex items-center justify-center"
+              whileTap={{ scale: 0.95 }}
+              disabled={isSending}
+            >
+              {isSending ? (
+                <motion.div
+                  className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                />
+              ) : (
                 "Send Message"
-            )}
-        </motion.button>
+              )}
+            </motion.button>
 
-        {/* Success Popup */}
-        <AnimatePresence>
-          {isSent && (
-              <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="absolute top-[-50px] left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg"
-              >
-              ✅ Message Sent Successfully!
-            </motion.div>
-          )}
-        </AnimatePresence>
+            <AnimatePresence>
+              {isSent && (
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute top-[-510px] left-[170px] w-[300px] sm:w-[400px] scale-125 z-60 sm:left-[420px] -translate-x-1/2 font-semibold bg-green-400 px-4 py-2 rounded-lg shadow-lg"
+                >
+                  ✅ Message Sent Successfully!
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </form>
       </div>

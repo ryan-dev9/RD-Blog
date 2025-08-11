@@ -1,52 +1,43 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/Navbar";
-import { Orbitron } from 'next/font/google'
-import { ThemeProvider } from "@/components/theme-provider";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import './globals.css';
+import Navbar from '@/components/Navbar';
+import { Orbitron } from 'next/font/google';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const orbitron = Orbitron({
   subsets: ['latin'],
-  weight: ['400', '700'], // Add weights as needed
-  variable: '--font-orbitron', // optional, if you want to use it as a CSS variable
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ['400', '700'],
+  variable: '--font-orbitron',
+  display: 'swap', // ✅ No render-blocking font load
 });
 
 export const metadata = {
-  title: "RD-Blog",
-  description: "A Industry level blog page developer",
-  icons: {
-    icon: "/favicon.ico",
-  },
+  title: 'RD-Blog',
+  description: 'An industry-level blog page',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} overflow-x-hidden ${geistMono.variable} antialiased`}
-      >
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-        <Navbar/>
-        {children}
-      </ThemeProvider>
-      <Analytics/>
-      <SpeedInsights/>
+      <head>
+        {/* ✅ Inline critical styles (very small snippet) */}
+        <style>{`
+          body { overflow-x: hidden; }
+        `}</style>
+      </head>
+      <body className={`${orbitron.variable} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

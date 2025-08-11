@@ -1,7 +1,5 @@
-// components/BlogSection.jsx
 import Link from "next/link";
 import Image from "next/image";
-import { Orbitron } from "next/font/google";
 
 export default function BlogSection() {
     const blogs = [
@@ -38,7 +36,7 @@ export default function BlogSection() {
                     Latest Blog Posts <span>
                         <Link
                             href="/blog"
-                            className="inline-block px-4 text-xl  py-2 bg-blue-600 font-semibold pb-2 font-sans text-white  rounded-lg hover:bg-black transition duration-300"
+                            className="inline-block px-4 text-xl  py-2 bg-blue-600 font-semibold pb-2 font-sans rounded-lg hover:bg-black transition duration-300"
                         >
                             View All
                         </Link>
@@ -50,19 +48,15 @@ export default function BlogSection() {
                             key={blog.id}
                             className="bg-black dark:bg-white/5 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-1 transition duration-300"
                         >
-                            {/* Image Section */}
                             <div className="w-full h-48 relative">
                                 <Image
-                                    src={blog.image} // yaha tumhara image path
+                                    src={blog.image}
                                     alt={blog.title}
                                     fill
                                     className="object-cover"
                                     sizes="(max-width: 768px) 100vw, 33vw"
                                 />
                             </div>
-
-
-                            {/* Content Section */}
                             <div className="p-6 flex flex-col justify-between h-full">
 
                                 <div>
@@ -73,7 +67,6 @@ export default function BlogSection() {
                                         {blog.description}
                                     </p>
                                 </div>
-
                             </div>
                         </div>
                     ))}
@@ -82,12 +75,3 @@ export default function BlogSection() {
         </section>
     );
 }
-
-{/* <div className="mt-4 text-center">
-    <Link
-        href="/blog"
-        className="inline-block px-4  py-2 bg-blue-600 font-semibold text-white  rounded-lg hover:bg-black transition duration-300"
-        >
-        View All
-    </Link>
-</div> */}

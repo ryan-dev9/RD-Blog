@@ -1,7 +1,4 @@
-// pages/my-blogs.js
 "use client"
-
-import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -66,9 +63,8 @@ export default function MyBlogs() {
   ];
 
   return (
-    <section className="min-h-screen py-16 bg-black text-white">
+    <section className="min-h-screen py-16 bg-black">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Page Heading */}
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,7 +74,6 @@ export default function MyBlogs() {
           My Blogs
         </motion.h1>
 
-        {/* Blogs Grid */}
         <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog, index) => (
             <motion.div
@@ -89,7 +84,7 @@ export default function MyBlogs() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="bg-white/10 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition duration-300"
             >
-              {/* Blog Image */}
+              
               <div className="relative w-full h-56">
                 <Image
                   src={blog.image}
@@ -99,8 +94,7 @@ export default function MyBlogs() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
-
-              {/* Blog Content */}
+              
               <div className="p-6 flex flex-col justify-between h-full">
                 <div>
                   <h3 className="text-2xl font-semibold">{blog.title}</h3>

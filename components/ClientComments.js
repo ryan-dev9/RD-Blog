@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -30,7 +29,6 @@ export default function ClientComments() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Desktop pagination - shows 3 comments per page
   const commentsPerPage = 3;
   const totalPages = Math.ceil(comments.length / commentsPerPage);
 
@@ -38,24 +36,21 @@ export default function ClientComments() {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Auto slide for mobile
   useEffect(() => {
     if (isMobile) {
       const interval = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % comments.length);
-      }, 4000); // 4 seconds
-
+      }, 4000);
       return () => clearInterval(interval);
     }
   }, [isMobile]);
 
-  // Get comments for current page (desktop)
   const getCurrentPageComments = () => {
     const startIndex = currentIndex * commentsPerPage;
     return comments.slice(startIndex, startIndex + commentsPerPage);
@@ -64,7 +59,7 @@ export default function ClientComments() {
   return (
     <section className="bg-transparent py-12">
       <div className="max-w-[85%] mx-auto px-4">
-        {/* Heading */}
+
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold font-[Orbitron]">
             Client Comments
@@ -74,10 +69,8 @@ export default function ClientComments() {
           </p>
         </div>
 
-        {/* Mobile View - Single Comment with Small Pagination Dots */}
         {isMobile ? (
           <div className="relative">
-            {/* Comment Card */}
             <div className="relative overflow-hidden">
               <motion.div
                 key={currentIndex}
@@ -95,8 +88,6 @@ export default function ClientComments() {
                 </p>
               </motion.div>
             </div>
-
-            {/* Mobile Small Pagination Dots */}
             <div className="flex justify-center space-x-2 mt-6">
               {comments.map((_, index) => (
                 <button
@@ -112,9 +103,7 @@ export default function ClientComments() {
             </div>
           </div>
         ) : (
-          // Desktop View - Grid Layout with Small Pagination
           <div>
-            {/* Comments Grid */}
             <motion.div 
               key={currentIndex}
               initial={{ opacity: 0, y: 20 }}
@@ -138,7 +127,6 @@ export default function ClientComments() {
               ))}
             </motion.div>
 
-            {/* Desktop Small Pagination Dots */}
             <div className="flex justify-center space-x-2">
               {Array.from({ length: totalPages }).map((_, pageIndex) => (
                 <button
