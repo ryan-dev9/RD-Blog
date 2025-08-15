@@ -27,6 +27,10 @@ export default function RootLayout({ children }) {
         `}</style>
       </head>
       <body className={`${orbitron.variable} antialiased`}>
+        <head>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8914479693209883"
+            crossorigin="anonymous"></script>
+        </head>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
